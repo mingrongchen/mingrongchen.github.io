@@ -1,8 +1,16 @@
+---
+title: hexo博客迁移记录
+categories: 
+  - 杂
+tags:
+  - 杂
+about: 无
+date: 2021-02-05 20:43:57
+---
+
 # hexo博客迁移记录
 
-
-
-
+<!--more-->
 
 1、新建hexo分支
 
@@ -12,11 +20,7 @@ git checkout -b hexo
 
 git push origin hexo:hexo
 
-
-
 2、删除hexo下面除了.git所有内容
-
-
 
 
 
@@ -50,15 +54,18 @@ npm cache clean --force
 
 
 
-使用淘宝镜像
+使用淘宝npm镜像
 
-npm install -g cnpm --registry=https://registry.npm.taobao.org
+npm install cnpm -g --registry=https://registry.npm.taobao.org
 
-安装hexo
+
+
+然后使用cnpm安装模块
 
 cnpm install hexo
 
-cnpm install 
+cnpm install
 
-cnpm install hexo-deployer-git --save
+cnpm install hexo-deployer-git
 
+hexo c & hexo g & hexo s
