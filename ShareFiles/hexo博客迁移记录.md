@@ -38,3 +38,27 @@ public/
 .deploy*/
 ```
 
+
+
+
+
+清除npm缓存
+
+删除node_model文件夹，删除package.lock.json文件
+
+npm cache clean --force
+
+
+
+使用淘宝镜像
+
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+安装hexo
+
+cnpm install hexo
+
+cnpm install 
+
+cnpm install hexo-deployer-git --save
+
