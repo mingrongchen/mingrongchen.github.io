@@ -1,9 +1,10 @@
 ---
 title: 深入理解Java抽象类和接口
 categories: 
-  - Java基础
+  - Java
 tags:
   - Java基础
+  - Java面向对象
 about: 无
 date: 2021-02-08 11:17:36
 ---
