@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Java数据结构与算法概览">
+<meta name="keywords" content="算法概览">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java数据结构与算法概览">
+<meta property="og:url" content="http://yoursite.com/2021/02/19/Java数据结构与算法/Java数据结构与算法概览/index.html">
+<meta property="og:site_name" content="MingRong&#39;s Boat">
+<meta property="og:description" content="Java数据结构与算法概览">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2021/02/19/Java数据结构与算法/Java数据结构与算法概览/image-20210210105538609.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/19/Java数据结构与算法/Java数据结构与算法概览/image-20210210105554780.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/19/Java数据结构与算法/Java数据结构与算法概览/image-20210210110001284.png">
+<meta property="og:updated_time" content="2021-02-19T08:08:29.898Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java数据结构与算法概览">
+<meta name="twitter:description" content="Java数据结构与算法概览">
+<meta name="twitter:image" content="http://yoursite.com/2021/02/19/Java数据结构与算法/Java数据结构与算法概览/image-20210210105538609.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2021/02/19/Java数据结构与算法/Java数据结构与算法概览/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Java数据结构与算法概览 | MingRong's Boat</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MingRong's Boat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">O Captain! My Captain!</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/19/Java数据结构与算法/Java数据结构与算法概览/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MingRongChen">
+      <meta itemprop="description" content="O Captain! My Captain!">
+      <meta itemprop="image" content="/images/geass.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MingRong's Boat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java数据结构与算法概览
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-02-19 16:04:53 / Modified: 16:08:29" itemprop="dateCreated datePublished" datetime="2021-02-19T16:04:53+08:00">2021-02-19</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">Java数据结构与算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Java数据结构与算法概览"><a href="#Java数据结构与算法概览" class="headerlink" title="Java数据结构与算法概览"></a>Java数据结构与算法概览</h1><a id="more"></a>
+
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>1、数据结构是指相互之间存在一种或多种特定关系的数据元素的集合。它是储存数据的一种结构体，在此结构中储存一些数据，而这些数据之间有一定的关系。</p>
+<p>2、数据元素之间的相互关系包括：数据的逻辑结构、数据的存储结构、数据的运算结构。</p>
+<p>3、数据结构的设计过程分为：抽象层、数据结构层、实现层。</p>
+<h3 id="逻辑结构分类"><a href="#逻辑结构分类" class="headerlink" title="逻辑结构分类"></a>逻辑结构分类</h3><p>线性数据结构：数组，线性表，栈，队列，串等。</p>
+<p>非线性数据结构：多维数组，集合，树，图，散列表(hash)。</p>
+<h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><p>定义：树形结构，作者觉得它是一种特殊的链形数据结构。最少有一个根节点组成，可以有多个子节点。树，显然是由递归算法组成。</p>
+<p>种类：</p>
+<p>（1）二叉树：每个节点最多含有两个子节点的树称为二叉树。</p>
+<ul>
+<li>1）一般二叉树：无限制，每个子节点的父亲节点不一定有两个子节点的二叉树成为一般二叉树。</li>
+<li>2）完全二叉树：对于一颗二叉树，假设其深度为d（d&gt;1）。除了第d层外，其它各层的节点数目均已达最大值，且第d层所有节点从左向右连续地紧密排列，这样的二叉树被称为完全二叉树；</li>
+<li>3）满二叉树：所有的节点都是二叉的二叉树成为满二叉树。</li>
+</ul>
+<p>（2）二叉搜索树/BST：二叉排序树、二叉查找树。是有序的。要点：如果不为空，那么其左子树节点的值都小于根节点的值；右子树节点的值都大于根节点的值。</p>
+<ul>
+<li>1）二叉平衡树：二叉搜索树，是有序的排序树，但左右两边包括子节点不一定平衡，而二叉平衡树是排序树的一种，并且加点条件，就是任意一个节点的两个叉的深度差不多（比如差值的绝对值小于某个常数，或者一个不能比另一个深出去一倍之类的）。这样的树可以保证二分搜索任意元素都是O(log n)的，一般还附带带有插入或者删除某个元素也是O(log n)的的性质。</li>
+<li>2）AVL树：最早的平衡二叉树之一。windows对进程地址空间的管理用到了AVL树。</li>
+<li>3）红黑树：通过制定了一些红黑标记和左右旋转规则来保证二叉树平衡。</li>
+</ul>
+<p>（3）B树/B-tree：又叫平衡(balance)多路查找树。树中每个结点最多含有m个孩子（m&gt;=2）。它类似普通的平衡二叉树，不同的一点是B-树允许每个节点有更多的子节点。</p>
+<h4 id="图"><a href="#图" class="headerlink" title="图"></a>图</h4><h5 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h5><p>图是由结点的有穷集合V和边的集合E组成。其中，为了与树形结构加以区别，在图结构中常常将结点称为顶点，边是顶点的有序偶对，若两个顶点之间存在一条边，就表示这两个顶点具有相邻关系，通常记为，G=(V,E)。</p>
+<h5 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h5><p>分为无向图和有向图。</p>
+<p>无向图G1：</p>
+<p><img src="/2021/02/19/Java数据结构与算法/Java数据结构与算法概览/image-20210210105538609.png" alt="image-20210210105538609"></p>
+<p>上面的图是有向图。和无向图不同，有向图的所有的边都是有方向的！ G2=(V1,{E1})。其中，</p>
+<p>（1）V1={A,C,B,F,D,E}。 V2表示由”A,B,C,D,E,F”几个顶点组成的集合。</p>
+<p>（2）E1={&lt;A,B&gt;,&lt;A,C&gt;,&lt;A,D&gt;,&lt;C,D&gt;,&lt;C,E&gt;,&lt;C,F&gt;,&lt;D,C&gt;,&lt;E,D&gt;}。 E1是由矢量&lt;A,B&gt;,矢量&lt;A,C&gt;…等等组成的集合。其中，矢量&lt;A,B)表示由”顶点A”指向”顶点B”的有向边。</p>
+<p>无向图G2：</p>
+<p><img src="/2021/02/19/Java数据结构与算法/Java数据结构与算法概览/image-20210210105554780.png" alt="image-20210210105554780"></p>
+<p>上面的图是无向图，无向图的所有的边都是不区分方向的。G0=(V1,{E1})。其中，</p>
+<p>（1）V1={A,B,C,D,E,F}。 V1表示由”A,B,C,D,E,F”几个顶点组成的集合。</p>
+<p>（2）E1={(A,C),(A,D),(B,C),(D,E),(E,F)}。 E1是由边(A,C),边(A,D)…等等组成的集合。其中，(A,C)表示由顶点A和顶点C连接成的边。</p>
+<h5 id="邻接点"><a href="#邻接点" class="headerlink" title="邻接点"></a>邻接点</h5><p>一条边上的两个顶点叫做邻接点。<br>例如，上面无向图中的顶点A和顶点C就是邻接点。<br>在有向图中，除了邻接点之外；还有”入边”和”出边”的概念。<br>顶点的入边，是指以该顶点为终点的边。而顶点的出边，则是指以该顶点为起点的边。<br>例如，上面有向图中的A和C是邻接点；&lt;A,C&gt;是A的出边，还是C的入边。</p>
+<h5 id="度"><a href="#度" class="headerlink" title="度"></a>度</h5><p>在无向图中，某个顶点的度是邻接到该顶点的边(或弧)的数目。<br>例如，上面无向图G2中顶点A的度是2。<br>在有向图中，度还有”入度”和”出度”之分。<br>某个顶点的入度，是指以该顶点为终点的边的数目。而顶点的出度，则是指以该顶点为起点的边的数目。<br>顶点的度=入度+出度。<br>例如，上面有向图G1中，顶点C的入度是2，出度是3；顶点B的度=2+3=5。</p>
+<h5 id="路径和回路"><a href="#路径和回路" class="headerlink" title="路径和回路"></a>路径和回路</h5><p>路径：如果顶点(Vm)到顶点(Vn)之间存在一个顶点序列。则表示Vm到Vn是一条路径。<br>路径长度：路径中”边的数量”。<br>简单路径：若一条路径上顶点不重复出现，则是简单路径。<br>回路：若路径的第一个顶点和最后一个顶点相同，则是回路。<br>简单回路：第一个顶点和最后一个顶点相同，其它各顶点都不重复的回路则是简单回路。</p>
+<h5 id="连通图和连通分量"><a href="#连通图和连通分量" class="headerlink" title="连通图和连通分量"></a>连通图和连通分量</h5><p>连通图：对无向图而言，任意两个顶点之间都存在一条无向路径，则称该无向图为连通图。 对有向图而言，若图中任意两个顶点之间都存在一条有向路径，则称该有向图为强连通图。<br>连通分量：非连通图中的各个连通子图称为该图的连通分量。</p>
+<h5 id="权"><a href="#权" class="headerlink" title="权"></a>权</h5><p>带权图如下：</p>
+<p><img src="/2021/02/19/Java数据结构与算法/Java数据结构与算法概览/image-20210210110001284.png" alt="image-20210210110001284"></p>
+<h5 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h5><p>图的存储结构，常用的是<strong>邻接矩阵</strong>和<strong>邻接表</strong></p>
+<h5 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h5><p>深度优先搜索（DFS）：递归实现；或者定义栈，使用非递归方法。</p>
+<p>广度优先搜索（BFS）：队列实现，自动查找从一个顶点到另一个相邻顶点的最短路径。</p>
+<h5 id="图的算法"><a href="#图的算法" class="headerlink" title="图的算法"></a>图的算法</h5><p>（1）最短路径问题：Dijkstra算法，算法的思路如下，Dijkstra算法采用的是一种贪心的策略，声明一个数组dis来保存源点到各个顶点的最短距离和一个保存已经找到了最短路径的顶点的集合：T，初始时，原点 s 的路径权重被赋为 0 （dis[s] = 0）。若对于顶点 s 存在能直接到达的边（s,m），则把dis[m]设为w（s, m）,同时把所有其他（s不能直接到达的）顶点的路径长度设为无穷大。初始时，集合T只有顶点s。 然后，从dis数组选择最小值，则该值就是源点s到该值对应的顶点的最短路径，并且把该点加入到T中，OK，此时完成一个顶点， 然后，我们需要看看新加入的顶点是否可以到达其他顶点并且看看通过该顶点到达其他点的路径长度是否比源点直接到达短，如果是，那么就替换这些顶点在dis中的值。 然后，又从dis中找出最小值，重复上述动作，直到T中包含了图的所有顶点。</p>
+<p>（2）拓扑排序：拓扑排序（Topological Sorting）是一个<strong>有向无环图</strong>（DAG, Directed Acyclic Graph）的所有顶点的线性序列。序列必须满足下面两个条件：一个是每个顶点出现且只出现一次，另一个是若存在一条从顶点A 到顶点 B 的路径，那么在序列中顶点 A 出现在顶点 B 的前面。</p>
+<p>计算方法：</p>
+<ul>
+<li>从DAG 图中选择一个 没有前驱（即入度为0）的顶点并输出。</li>
+<li>从图中删除该顶点和所有以它为起点的有向边。</li>
+<li>重复1 和 2 直到当前的 DAG 图为空或当前图中不存在无前驱的顶点为止。后一种情况说明有向图中必然存在环。</li>
+</ul>
+<p>（3）最小生成树：</p>
+<ul>
+<li>Kruskal算法：此算法可以称为 “加边法”，初始最小生成树边数为0，每迭代一次就选择一条满足条件的最小代价边，加入到最小生成树的边集合里。</li>
+<li>Prime算法：此算法可以称为 “加点法”，每次迭代选择代价最小的边对应的点，加入到最小生成树中。算法从某一个顶点 s 开始，逐渐长大覆盖整个连通网的所有顶点。</li>
+</ul>
+<h5 id="现实应用"><a href="#现实应用" class="headerlink" title="现实应用"></a>现实应用</h5><p>（1）交通流量建模：顶点可以表示街道的十字路口，边表示街道。加权的边可以表示限速或者车道的数量。建模人员可以用这个系统来判断最佳路线及最有可能堵车的街道。</p>
+<p>（2）运输系统：比如，航空公司可以用图来为其飞行系统建模。将每个机场看成顶点，将经过两个顶点的每条航线看作一条边。加权的边可以看作从一个机场到另一个机场的航班成本，或两个机场之间的距离，这取决与建模的对象是什么。</p>
+<p>（3）局域网、广域网等计算机网络</p>
+<p>（4）消费市场：顶点可以用来表示供应商和消费者。</p>
+<h4 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h4><p>定义：</p>
+<p>（1）Hash，一般翻译做“散列”，也有直接音译为“哈希”的，就是把任意长度的输入（又叫做预映射， pre-image），变换成固定长度的输出，该输出就是散列值。一般通过Hash算法实现。</p>
+<p>（2）所谓的Hash算法都是散列算法，把任意长度的输入，变换成固定长度的输出，该输出就是散列值.（如：MD5,SHA1,加解密算法等）</p>
+<p>（3）简单的说就是一种将任意长度的消息压缩到某一固定长度的消息摘要的函数。</p>
+<h5 id="Hash表"><a href="#Hash表" class="headerlink" title="Hash表"></a>Hash表</h5><p>Java中数据存储方式最底层的两种结构，一种是数组，另一种就是链表。而Hash表就是综合了这两种数据结构。</p>
+<p>例如：HashTable,HashMap，哈希表具有较快（常量级）的查询速度，及相对较快的增删速度，所以很适合在海量数据的环境中使用。一般实现哈希表的方法采用“拉链法”，我们可以理解为“链表的数组”。</p>
+<h5 id="一致性Hash"><a href="#一致性Hash" class="headerlink" title="一致性Hash"></a>一致性Hash</h5><p>Hash很好的解决了单体应用情况下的数据查找和插入的速度问题。但是毕竟单体应用的储存空间是有限的，所有在分布式环境下，应运而生了一致性Hash算法。</p>
+<p>用意和hashCode的用意一样，只不过它是取模放在不同的IP机器上而已。</p>
+<p>一致性Hash需要注意的就是默认分配的桶比较多些，而当其中一台机器挂了，影响的面比较小一些。</p>
+<p>需要注意的是，相同的内容算出来的hash一定是一样的。既：幂等性。</p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><p>算法（Algorithm）是指解题方案的准确而完整的描述，是一系列解决问题的清晰指令，算法代表着用系统的方法描述解决问题的策略机制。也就是说，能够对一定规范的输入，在有限时间内获得所要求的输出。</p>
+<h3 id="评定"><a href="#评定" class="headerlink" title="评定"></a>评定</h3><p>时间复杂度：算法的时间复杂度是指执行算法所需要的计算工作量。简单理解，算法在规模为n的情况下，一个算法语句执行的次数。</p>
+<p>空间复杂度：算法的空间复杂度是指算法需要消耗的内存空间。简单理解，算法在规模为n的情况下额外消耗的存储空间。</p>
+<h3 id="常见算法"><a href="#常见算法" class="headerlink" title="常见算法"></a>常见算法</h3><p>查找：顺序查找、二分查找、插值查找、</p>
+<p>排序（八大排序算法）：直接插入排序（Insertion Sort）、希尔排序（Shell Sort）、选择排序（Selection Sort）、堆排序（Heap Sort）、冒泡排序（Bubble Sort）、快速排序（Quick Sort）、归并排序（Merging Sort）、基数排序（Radix Sort）</p>
+<p>其它：分治法、贪心算法、动态规划算法、回溯法、分支限界法</p>
+<h3 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h3><p>对称加密算法、非对称加密算法、签名</p>
+<p>常见算法：AES、RSA、CRC、MD5</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/算法概览/" rel="tag"># 算法概览</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/09/杂/Eclipse的环境配置/" rel="next" title="Eclipse的环境配置">
+                <i class="fa fa-chevron-left"></i> Eclipse的环境配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/02/20/Java数据结构与算法/Java八大排序算法/" rel="prev" title="Java八大排序算法">
+                Java八大排序算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/geass.jpg" alt="MingRongChen">
+            
+              <p class="site-author-name" itemprop="name">MingRongChen</p>
+              <div class="site-description motion-element" itemprop="description">O Captain! My Captain!</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/mingrongchen" title="GitHub &rarr; https://github.com/mingrongchen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:825296313@qq.com" title="E-Mail &rarr; mailto:825296313@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java数据结构与算法概览"><span class="nav-number">1.</span> <span class="nav-text">Java数据结构与算法概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">1.1.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑结构分类"><span class="nav-number">1.1.2.</span> <span class="nav-text">逻辑结构分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#树"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">图</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义-1"><span class="nav-number">1.1.2.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分类："><span class="nav-number">1.1.2.2.2.</span> <span class="nav-text">分类：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#邻接点"><span class="nav-number">1.1.2.2.3.</span> <span class="nav-text">邻接点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#度"><span class="nav-number">1.1.2.2.4.</span> <span class="nav-text">度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#路径和回路"><span class="nav-number">1.1.2.2.5.</span> <span class="nav-text">路径和回路</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#连通图和连通分量"><span class="nav-number">1.1.2.2.6.</span> <span class="nav-text">连通图和连通分量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#权"><span class="nav-number">1.1.2.2.7.</span> <span class="nav-text">权</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#存储结构"><span class="nav-number">1.1.2.2.8.</span> <span class="nav-text">存储结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#图的遍历"><span class="nav-number">1.1.2.2.9.</span> <span class="nav-text">图的遍历</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#图的算法"><span class="nav-number">1.1.2.2.10.</span> <span class="nav-text">图的算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#现实应用"><span class="nav-number">1.1.2.2.11.</span> <span class="nav-text">现实应用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Hash</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hash表"><span class="nav-number">1.1.2.3.1.</span> <span class="nav-text">Hash表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一致性Hash"><span class="nav-number">1.1.2.3.2.</span> <span class="nav-text">一致性Hash</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">1.2.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义："><span class="nav-number">1.2.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评定"><span class="nav-number">1.2.2.</span> <span class="nav-text">评定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见算法"><span class="nav-number">1.2.3.</span> <span class="nav-text">常见算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加密算法"><span class="nav-number">1.2.4.</span> <span class="nav-text">加密算法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MingRong</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1.5,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"superSample":2,"position":"left","width":150,"height":300,"hOffset":0,"vOffset":-20},"mobile":{"show":false,"scale":0.5,"hOffset":0,"vOffset":-10},"react":{"opacity":0.8,"opacityDefault":0.7,"opacityOnHover":0.2}});</script></body>
+</html>
