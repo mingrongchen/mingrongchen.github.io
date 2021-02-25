@@ -94,18 +94,16 @@
 
 
 
-  <meta name="description" content="二分查找算法">
-<meta name="keywords" content="二分查找算法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="二分查找算法">
-<meta property="og:url" content="http://yoursite.com/2021/02/08/二分查找算法/index.html">
+  <meta name="description" content="O Captain! My Captain!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MingRong&#39;s Boat">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="MingRong&#39;s Boat">
-<meta property="og:description" content="二分查找算法">
+<meta property="og:description" content="O Captain! My Captain!">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-02-09T01:21:33.533Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二分查找算法">
-<meta name="twitter:description" content="二分查找算法">
+<meta name="twitter:title" content="MingRong&#39;s Boat">
+<meta name="twitter:description" content="O Captain! My Captain!">
 
 
 
@@ -113,7 +111,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2021/02/08/二分查找算法/">
+  <link rel="canonical" href="http://yoursite.com/page/3/">
 
 
 
@@ -123,7 +121,7 @@
   };
 </script>
 
-  <title>二分查找算法 | MingRong's Boat</title>
+  <title>MingRong's Boat</title>
   
 
 
@@ -171,7 +169,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -321,9 +320,9 @@
           
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -338,7 +337,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/08/二分查找算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/12/杂/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MingRongChen">
@@ -355,8 +354,10 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">二分查找算法
-
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/12/12/杂/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
               
             
           </h1>
@@ -381,7 +382,7 @@
                 
               
 
-              <time title="Created: 2021-02-08 21:44:06" itemprop="dateCreated datePublished" datetime="2021-02-08T21:44:06+08:00">2021-02-08</time>
+              <time title="Created: 2020-12-12 20:43:57" itemprop="dateCreated datePublished" datetime="2020-12-12T20:43:57+08:00">2020-12-12</time>
             </span>
           
 
@@ -396,7 +397,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2021-02-09 09:21:33" itemprop="dateModified" datetime="2021-02-09T09:21:33+08:00">2021-02-09</time>
+                <time title="Modified: 2021-02-07 10:14:11" itemprop="dateModified" datetime="2021-02-07T10:14:11+08:00">2021-02-07</time>
               </span>
             
           
@@ -410,7 +411,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">Java数据结构与算法</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/杂/" itemprop="url" rel="index"><span itemprop="name">杂</span></a></span>
 
                 
                 
@@ -448,42 +449,18 @@
       
 
       
-        <h1 id="二分查找算法"><a href="#二分查找算法" class="headerlink" title="二分查找算法"></a>二分查找算法</h1><a id="more"></a>
-
-<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>定义：二分查找（binary search）算法又叫折半查找算法，是一种在<strong>有序数组</strong>中，查找某一特定元素的搜索算法。</p>
-<p>使用条件：必须是有序。</p>
-<p>大致流程：搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。</p>
-<p>算法复杂度分析：</p>
-<table>
-<thead>
-<tr>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>O(logN)</td>
-<td>O(1)</td>
-</tr>
-</tbody></table>
-<p>解决方法：非递归方法、递归方法</p>
-<h2 id="非递归方法"><a href="#非递归方法" class="headerlink" title="非递归方法"></a>非递归方法</h2><p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 初始化左右指针, [left, right]</span></span><br><span class="line">	<span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">		</span><br><span class="line">	<span class="comment">// 循环遍历</span></span><br><span class="line">	<span class="keyword">while</span>(left &lt;= right) &#123;</span><br><span class="line">		<span class="comment">// (right + left) / 2</span></span><br><span class="line">		<span class="comment">// 目的:防止溢出</span></span><br><span class="line">		<span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">			</span><br><span class="line">		<span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">			<span class="comment">// 返回该数值的位置</span></span><br><span class="line">			<span class="keyword">return</span> mid;    </span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">			<span class="comment">// 目标值在右边,移动左指针</span></span><br><span class="line">			left = mid + <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">			<span class="comment">// 目标值在左边,移动右指针</span></span><br><span class="line">			right = mid - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;  <span class="comment">// whild end</span></span><br><span class="line">	<span class="comment">// 未找到这个值</span></span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125; <span class="comment">// binarySearch end</span></span><br></pre></td></tr></table></figure>
-
-<p>需要注意一下几点：</p>
-<p>1、为什么while循环的条件中是&lt;=，而不是&lt;？</p>
-<p>回答：因为初始化 right 的赋值是 nums.length - 1 ，即最后⼀个元素的索引，⽽不是 nums.length。可以理解为每次搜索空间两端都为闭区间[left， right]；</p>
-<p>while退出条件：</p>
-<p>（1）当找到目标的时候，即mid索引的值等于target的值就返回索引。</p>
-<p>（2）当没有该目标的时候，终止条件为left==right + 1。</p>
-<p>例如数组[1,2,4]，开始查找left和right相邻且指向1、4两个值，我们需要查找的值为3。第一次查找没找到，mid索引为1，则移动左指针mid+1为2；此时跟右指针相等都指向4这个值，进行逻辑判断，此时目标值在该值的左边，则移动右指针mid-1；此时right索引为3，left索引为4，没找到该值，则退出循环返回-1。</p>
-<p>语言描述不够形象，后续补上动图。</p>
-<p>2、为什么要写成left = mid +1，right = mid -1。而不是left = mid，right = mid。</p>
-<p>由于我们的<strong>搜索区间</strong>左右都是闭区间[left，right]，当我们发现mid不是需要找的target时，我们下一步则需要去找[left，mid-1]或者[mid+1，right]。当然我们也可以写成left = mid，right = mid的形式，则需要修改相应的代码。</p>
-<p>3、算法缺陷</p>
-<p>如果有序数组[1,2,2,2,3]，target为2，算法返回的索引是2，结果正确，但是如果我们想得到target的左边界或者右边界的索引（1或者3），这种方法无法处理。</p>
-<h2 id="递归方法"><a href="#递归方法" class="headerlink" title="递归方法"></a>递归方法</h2><p>代码如下：</p>
-
+        
+          <p>Welcome to my Blog.</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/12/12/杂/hello-world/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
       
     </div>
 
@@ -493,12 +470,6 @@
     
     
     <div>
-      
-        <div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
       
     </div>
 
@@ -513,39 +484,14 @@
 
     <footer class="post-footer">
       
-        
-          
-        
-        <div class="post-tags">
-          
-            <a href="/tags/二分查找算法/" rel="tag"># 二分查找算法</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2021/02/08/Java/基础/深入理解Java抽象类和接口/" rel="next" title="深入理解Java抽象类和接口">
-                <i class="fa fa-chevron-left"></i> 深入理解Java抽象类和接口
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -555,15 +501,18 @@
   </article>
 
 
-  </div>
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
 
 
           </div>
           
-
-  
-
-
 
         </div>
         
@@ -583,17 +532,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -610,7 +550,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -635,7 +575,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -668,7 +616,29 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -722,23 +692,6 @@
       </div>
 
       
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二分查找算法"><span class="nav-number">1.</span> <span class="nav-text">二分查找算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简述"><span class="nav-number">1.1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非递归方法"><span class="nav-number">1.2.</span> <span class="nav-text">非递归方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归方法"><span class="nav-number">1.3.</span> <span class="nav-text">递归方法</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
       
 
@@ -773,6 +726,32 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
@@ -862,10 +841,6 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.2.0"></script>
-<script src="/js/post-details.js?v=7.2.0"></script>
-
-
 
   
 
@@ -881,8 +856,6 @@
 
   
 
-
-  
 
 
   

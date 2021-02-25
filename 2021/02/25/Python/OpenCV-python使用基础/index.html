@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="OpenCV-python使用基础">
+<meta name="keywords" content="OpenCV-python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Opencv-python使用基础">
+<meta property="og:url" content="http://yoursite.com/2021/02/25/Python/OpenCV-python使用基础/index.html">
+<meta property="og:site_name" content="MingRong&#39;s Boat">
+<meta property="og:description" content="OpenCV-python使用基础">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-02-25T08:42:38.949Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Opencv-python使用基础">
+<meta name="twitter:description" content="OpenCV-python使用基础">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2021/02/25/Python/OpenCV-python使用基础/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Opencv-python使用基础 | MingRong's Boat</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MingRong's Boat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">O Captain! My Captain!</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/25/Python/OpenCV-python使用基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MingRongChen">
+      <meta itemprop="description" content="O Captain! My Captain!">
+      <meta itemprop="image" content="/images/geass.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MingRong's Boat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Opencv-python使用基础
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-02-25 16:29:32 / Modified: 16:42:38" itemprop="dateCreated datePublished" datetime="2021-02-25T16:29:32+08:00">2021-02-25</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 Views:  
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="OpenCV-python使用基础"><a href="#OpenCV-python使用基础" class="headerlink" title="OpenCV-python使用基础"></a>OpenCV-python使用基础</h1><a id="more"></a>
+
+<h2 id="基本图像处理"><a href="#基本图像处理" class="headerlink" title="基本图像处理"></a>基本图像处理</h2><h3 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h3><p>plt.imread和PIL.Image.open读入的都是RGB顺序，而opencv中cv2.imread读入的是BGR通道顺序 。cv2.imread会显示图片更蓝一些。</p>
+<p>虽然python 很强大，而且也有自己的图像处理库PIL，但是相对于OpenCV 来讲，它还是弱小很多。跟很多开源软件一样OpenCV 也提供了完善的python 接口，非常便于调用。</p>
+<p>Python 作为一种高效简洁的直译式语言非常适合我们用来解决日常工作的问题。而且它简单易学，初学者几个小时就可以基本入门。再加上Numpy 和matplotlib 这两个翅膀，Python 对数据分析的能力不逊于Matlab。Python 还被称为是胶水语言，有很多软件都提供了Python 接口。尤其是在linux 下，可以使用Python 将不同的软件组成一个工作流，发挥每一个软件自己最大的优势从而完成一个复杂的任务。比如我们可以使用Mysql 存储数据，使用R 分析数据，使用matplotlib 展示数据，使用OpenGL 进行3D 建模，使用Qt 构建漂亮的GUI。而Python 可以将他们联合在一起构建一个强大的工作流。</p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><h4 id="读取显示图片"><a href="#读取显示图片" class="headerlink" title="读取显示图片"></a>读取显示图片</h4><p>opencv支持读取bmp、jpg、png、tiff等常用格式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2    <span class="comment">#导入cv模块</span></span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="string">"11.jpg"</span>)		<span class="comment">#读取图片</span></span><br><span class="line">cv2.namedWindow(<span class="string">"Image"</span>)		<span class="comment">#创建窗口，并命名</span></span><br><span class="line">cv2.imshow(<span class="string">"Image"</span>, img)		<span class="comment">#在窗口中显示图像</span></span><br><span class="line">cv2.waitKey(<span class="number">0</span>)					<span class="comment">#若不添加，串口会一闪而过</span></span><br><span class="line">cv2.destroyAllWindows() 		<span class="comment">#释放窗口</span></span><br><span class="line"><span class="comment">#cv2.destroyWindow(("Image")</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="创建图像"><a href="#创建图像" class="headerlink" title="创建图像"></a>创建图像</h4><p>opencv接口中没有直接创建图像的接口，若要创建图像，需要用到numpy函数。在新的opencv-python中，图像使用Numpy数据的属性来表示图像的尺寸和通道信息。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">emptyImage = np.zeros(img.shape, np.uint8) </span><br><span class="line">emptyImage2 = img.copy();</span><br><span class="line"></span><br><span class="line">emptyImage3=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)<span class="comment">#使用cvtColor函数获取原图像的副本</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="保存图像"><a href="#保存图像" class="headerlink" title="保存图像"></a>保存图像</h4><p>保存图像比较简单，直接使用cv2.imwrite即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.imwrite(<span class="string">"12.jpg"</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="图片操作"><a href="#图片操作" class="headerlink" title="图片操作"></a>图片操作</h4><h5 id="图片翻转"><a href="#图片翻转" class="headerlink" title="图片翻转"></a>图片翻转</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imgflip = cv2.flip(img, <span class="number">1</span>)    <span class="comment">#0:沿x轴翻转；1：沿y轴翻转；-1:沿x，y同时翻转</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="复制图片"><a href="#复制图片" class="headerlink" title="复制图片"></a>复制图片</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imgcopy = img.copy()</span><br></pre></td></tr></table></figure>
+
+<h5 id="颜色空间转换"><a href="#颜色空间转换" class="headerlink" title="颜色空间转换"></a>颜色空间转换</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#彩色图像转为灰度图像</span></span><br><span class="line">img2 = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY) </span><br><span class="line"><span class="comment">#灰度图像转为彩色图像</span></span><br><span class="line">img3 = cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)</span><br><span class="line"><span class="comment"># cv2.COLOR_X2Y，其中X,Y = RGB, BGR, GRAY, HSV, YCrCb, XYZ, Lab, Luv, HLS</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="图片画图"><a href="#图片画图" class="headerlink" title="图片画图"></a>图片画图</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">np.set_printoptions(threshold=<span class="string">'nan'</span>)</span><br><span class="line"><span class="comment"># 创建一个宽512高512的黑色画布，RGB(0,0,0)即黑色</span></span><br><span class="line">img=np.zeros((<span class="number">512</span>,<span class="number">512</span>,<span class="number">3</span>),np.uint8)</span><br><span class="line"><span class="comment"># 画直线,图片对象，起始坐标(x轴,y轴)，结束坐标，颜色，宽度</span></span><br><span class="line">cv2.line(img,(<span class="number">0</span>,<span class="number">0</span>),(<span class="number">311</span>,<span class="number">511</span>),(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>),<span class="number">10</span>)</span><br><span class="line"><span class="comment"># 画矩形，图片对象，左上角坐标，右下角坐标，颜色，宽度</span></span><br><span class="line">cv2.rectangle(img,(<span class="number">30</span>,<span class="number">166</span>),(<span class="number">130</span>,<span class="number">266</span>),(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 画圆形，图片对象，中心点坐标，半径大小，颜色，宽度</span></span><br><span class="line">cv2.circle(img,(<span class="number">222</span>,<span class="number">222</span>),<span class="number">50</span>,(<span class="number">255.111</span>,<span class="number">111</span>),<span class="number">-1</span>)</span><br><span class="line"><span class="comment"># 画椭圆形，图片对象，中心点坐标，长短轴，顺时针旋转度数，开始角度(右长轴表0度，上短轴表270度)，颜色，宽度</span></span><br><span class="line">cv2.ellipse(img,(<span class="number">333</span>,<span class="number">333</span>),(<span class="number">50</span>,<span class="number">20</span>),<span class="number">0</span>,<span class="number">0</span>,<span class="number">150</span>,(<span class="number">255</span>,<span class="number">222</span>,<span class="number">222</span>),<span class="number">-1</span>)</span><br><span class="line"><span class="comment"># 画多边形，指定各个点坐标,array必须是int32类型</span></span><br><span class="line">pts=np.array([[<span class="number">10</span>,<span class="number">5</span>],[<span class="number">20</span>,<span class="number">30</span>],[<span class="number">70</span>,<span class="number">20</span>],[<span class="number">50</span>,<span class="number">10</span>]], np.int32)</span><br><span class="line"><span class="comment"># -1表示该纬度靠后面的纬度自动计算出来，实际上是4</span></span><br><span class="line">pts = pts.reshape((<span class="number">-1</span>,<span class="number">1</span>,<span class="number">2</span>,))</span><br><span class="line"><span class="comment"># 画多条线，False表不闭合，True表示闭合，闭合即多边形</span></span><br><span class="line">cv2.polylines(img,[pts],<span class="literal">True</span>,(<span class="number">255</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">5</span>)</span><br><span class="line"><span class="comment">#写字,字体选择</span></span><br><span class="line">font=cv2.FONT_HERSHEY_SCRIPT_COMPLEX</span><br><span class="line"><span class="comment"># 图片对象，要写的内容，左边距，字的底部到画布上端的距离，字体，大小，颜色，粗细</span></span><br><span class="line">cv2.putText(img,<span class="string">"OpenCV"</span>,(<span class="number">10</span>,<span class="number">400</span>),font,<span class="number">3.5</span>,(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>),<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="图片大小区域处理"><a href="#图片大小区域处理" class="headerlink" title="图片大小区域处理"></a>图片大小区域处理</h3><h4 id="图片缩放"><a href="#图片缩放" class="headerlink" title="图片缩放"></a>图片缩放</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">''</span>)</span><br><span class="line"><span class="comment"># 缩放成200x200的方形图像，没有指定插值方法，会失真</span></span><br><span class="line">img_200x200 = cv2.resize(img, (<span class="number">200</span>, <span class="number">200</span>))</span><br><span class="line"><span class="comment"># 不直接指定缩放后大小，通过fx和fy指定缩放比例，0.5则长宽都为原来一半</span></span><br><span class="line"><span class="comment"># 等效于img_200x300 = cv2.resize(img, (300, 200))，注意指定大小的格式是(宽度,高度)</span></span><br><span class="line"><span class="comment"># 插值方法默认是cv2.INTER_LINEAR，这里指定为最近邻插值</span></span><br><span class="line">img_200x300 = cv2.resize(img, (<span class="number">0</span>, <span class="number">0</span>), fx=<span class="number">0.5</span>, fy=<span class="number">0.5</span>, </span><br><span class="line">                              interpolation=cv2.INTER_NEAREST)</span><br></pre></td></tr></table></figure>
+
+<h4 id="图片裁剪"><a href="#图片裁剪" class="headerlink" title="图片裁剪"></a>图片裁剪</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cropImg = img[<span class="number">20</span>:<span class="number">150</span>, <span class="number">-180</span>:<span class="number">-50</span>]</span><br></pre></td></tr></table></figure>
+
+<h4 id="图片补边"><a href="#图片补边" class="headerlink" title="图片补边"></a>图片补边</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 给图片上下各贴50像素的黑边，</span></span><br><span class="line">borderImg = cv2.copyMakeBorder(img, <span class="number">50</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="number">0</span>,cv2.BORDER_CONSTANT,value=(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="图片本身处理"><a href="#图片本身处理" class="headerlink" title="图片本身处理"></a>图片本身处理</h4><h5 id="HSV空间调节"><a href="#HSV空间调节" class="headerlink" title="HSV空间调节"></a>HSV空间调节</h5><p>图像本身的属性操作也非常多，比如可以通过HSV空间对色调和明暗进行调节。HSV空间是由美国的图形学专家A. R. Smith提出的一种颜色空间，HSV分别是色调（Hue），饱和度（Saturation）和明度（Value）。在HSV空间中进行调节就避免了直接在RGB空间中调节是还需要考虑三个通道的相关性。OpenCV中H的取值是[0, 180)，其他两个通道的取值都是[0, 256)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过cv2.cvtColor把图像从BGR转换到HSV</span></span><br><span class="line">img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)</span><br><span class="line"><span class="comment"># H空间中，绿色比黄色的值高一点，所以给每个像素+15，黄色的树叶就会变绿</span></span><br><span class="line">turn_green_hsv = img_hsv.copy()</span><br><span class="line">turn_green_hsv[:, :, <span class="number">0</span>] = (turn_green_hsv[:, :, <span class="number">0</span>]+<span class="number">15</span>) % <span class="number">180</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 减小饱和度会让图像损失鲜艳，变得更灰</span></span><br><span class="line">colorless_hsv = img_hsv.copy()</span><br><span class="line">colorless_hsv[:, :, <span class="number">1</span>] = <span class="number">0.5</span> * colorless_hsv[:, :, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 减小明度为原来一半</span></span><br><span class="line">darker_hsv = img_hsv.copy()</span><br><span class="line">darker_hsv[:, :, <span class="number">2</span>] = <span class="number">0.5</span> * darker_hsv[:, :, <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+
+<h5 id="直方图和Gamma变换"><a href="#直方图和Gamma变换" class="headerlink" title="直方图和Gamma变换"></a>直方图和Gamma变换</h5><p>我们都较难一眼就对像素中值的分布有细致的了解，这时候就需要直方图。如果直方图中的成分过于靠近0或者255，可能就出现了暗部细节不足或者亮部细节丢失的情况。当背景里的暗部细节非常弱的个时候，一个常用方法是考虑用Gamma变换来提升暗部细节。Gamma变换是矫正相机直接成像和人眼感受图像差别的一种常用手段，简单来说就是通过非线性变换让图像从对曝光强度的线性响应变得更接近人眼感受到的响应。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分通道计算每个通道的直方图</span></span><br><span class="line">hist_b = cv2.calcHist([img], [<span class="number">0</span>], <span class="literal">None</span>, [<span class="number">256</span>], [<span class="number">0</span>, <span class="number">256</span>])</span><br><span class="line">hist_g = cv2.calcHist([img], [<span class="number">1</span>], <span class="literal">None</span>, [<span class="number">256</span>], [<span class="number">0</span>, <span class="number">256</span>])</span><br><span class="line">hist_r = cv2.calcHist([img], [<span class="number">2</span>], <span class="literal">None</span>, [<span class="number">256</span>], [<span class="number">0</span>, <span class="number">256</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义Gamma矫正的函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gamma_trans</span><span class="params">(img, gamma)</span>:</span></span><br><span class="line">    <span class="comment"># 具体做法是先归一化到1，然后gamma作为指数值求出新的像素值再还原</span></span><br><span class="line">    gamma_table = [np.power(x/<span class="number">255.0</span>, gamma)*<span class="number">255.0</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">256</span>)]</span><br><span class="line">    gamma_table = np.round(np.array(gamma_table)).astype(np.uint8)</span><br><span class="line">    <span class="comment"># 实现这个映射用的是OpenCV的查表函数</span></span><br><span class="line">    <span class="keyword">return</span> cv2.LUT(img, gamma_table)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行Gamma矫正，小于1的值让暗部细节大量提升，同时亮部细节少量提升</span></span><br><span class="line">img_corrected = gamma_trans(img, <span class="number">0.5</span>)</span><br><span class="line">cv2.imwrite(<span class="string">'gamma_corrected.jpg'</span>, img_corrected)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分通道计算Gamma矫正后的直方图</span></span><br><span class="line">hist_b_corrected = cv2.calcHist([img_corrected], [<span class="number">0</span>], <span class="literal">None</span>, [<span class="number">256</span>], [<span class="number">0</span>, <span class="number">256</span>])</span><br><span class="line">hist_g_corrected = cv2.calcHist([img_corrected], [<span class="number">1</span>], <span class="literal">None</span>, [<span class="number">256</span>], [<span class="number">0</span>, <span class="number">256</span>])</span><br><span class="line">hist_r_corrected = cv2.calcHist([img_corrected], [<span class="number">2</span>], <span class="literal">None</span>, [<span class="number">256</span>], [<span class="number">0</span>, <span class="number">256</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将直方图进行可视化</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line">pix_hists = [</span><br><span class="line">    [hist_b, hist_g, hist_r],</span><br><span class="line">    [hist_b_corrected, hist_g_corrected, hist_r_corrected]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">pix_vals = range(<span class="number">256</span>)</span><br><span class="line"><span class="keyword">for</span> sub_plt, pix_hist <span class="keyword">in</span> zip([<span class="number">121</span>, <span class="number">122</span>], pix_hists):</span><br><span class="line">    ax = fig.add_subplot(sub_plt, projection=<span class="string">'3d'</span>)</span><br><span class="line">    <span class="keyword">for</span> c, z, channel_hist <span class="keyword">in</span> zip([<span class="string">'b'</span>, <span class="string">'g'</span>, <span class="string">'r'</span>], [<span class="number">20</span>, <span class="number">10</span>, <span class="number">0</span>], pix_hist):</span><br><span class="line">        cs = [c] * <span class="number">256</span></span><br><span class="line">        ax.bar(pix_vals, channel_hist, zs=z, zdir=<span class="string">'y'</span>, color=cs, alpha=<span class="number">0.618</span>, edgecolor=<span class="string">'none'</span>, lw=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    ax.set_xlabel(<span class="string">'Pixel Values'</span>)</span><br><span class="line">    ax.set_xlim([<span class="number">0</span>, <span class="number">256</span>])</span><br><span class="line">    ax.set_ylabel(<span class="string">'Channels'</span>)</span><br><span class="line">    ax.set_zlabel(<span class="string">'Counts'</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h4 id="图片仿射变换"><a href="#图片仿射变换" class="headerlink" title="图片仿射变换"></a>图片仿射变换</h4><h5 id="仿射变换原理：略"><a href="#仿射变换原理：略" class="headerlink" title="仿射变换原理：略"></a>仿射变换原理：略</h5><p>在OpenCV中实现仿射变换是通过仿射变换矩阵和cv2.warpAffine()共同处理。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取一张斯里兰卡拍摄的大象照片</span></span><br><span class="line">img = cv2.imread(<span class="string">'lanka_safari.jpg'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 沿着横纵轴放大1.6倍，然后平移(-150,-240)，最后沿原图大小截取，等效于裁剪并放大</span></span><br><span class="line">M_crop_elephant = np.array([</span><br><span class="line">    [<span class="number">1.6</span>, <span class="number">0</span>, <span class="number">-150</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">1.6</span>, <span class="number">-240</span>]</span><br><span class="line">], dtype=np.float32)</span><br><span class="line"></span><br><span class="line">img_elephant = cv2.warpAffine(img, M_crop_elephant, (<span class="number">400</span>, <span class="number">600</span>))</span><br><span class="line">cv2.imwrite(<span class="string">'lanka_elephant.jpg'</span>, img_elephant)</span><br><span class="line"></span><br><span class="line"><span class="comment"># x轴的剪切变换，角度15°</span></span><br><span class="line">theta = <span class="number">15</span> * np.pi / <span class="number">180</span></span><br><span class="line">M_shear = np.array([</span><br><span class="line">    [<span class="number">1</span>, np.tan(theta), <span class="number">0</span>],</span><br><span class="line">    [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">], dtype=np.float32)</span><br><span class="line"></span><br><span class="line">img_sheared = cv2.warpAffine(img, M_shear, (<span class="number">400</span>, <span class="number">600</span>))</span><br><span class="line">cv2.imwrite(<span class="string">'lanka_safari_sheared.jpg'</span>, img_sheared)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 顺时针旋转，角度15°</span></span><br><span class="line">M_rotate = np.array([</span><br><span class="line">    [np.cos(theta), -np.sin(theta), <span class="number">0</span>],</span><br><span class="line">    [np.sin(theta), np.cos(theta), <span class="number">0</span>]</span><br><span class="line">], dtype=np.float32)</span><br><span class="line"></span><br><span class="line">img_rotated = cv2.warpAffine(img, M_rotate, (<span class="number">400</span>, <span class="number">600</span>))</span><br><span class="line">cv2.imwrite(<span class="string">'lanka_safari_rotated.jpg'</span>, img_rotated)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 某种变换，具体旋转+缩放+旋转组合可以通过SVD分解理解</span></span><br><span class="line">M = np.array([</span><br><span class="line">    [<span class="number">1</span>, <span class="number">1.5</span>, <span class="number">-400</span>],</span><br><span class="line">    [<span class="number">0.5</span>, <span class="number">2</span>, <span class="number">-100</span>]</span><br><span class="line">], dtype=np.float32)</span><br><span class="line"></span><br><span class="line">img_transformed = cv2.warpAffine(img, M, (<span class="number">400</span>, <span class="number">600</span>))</span><br><span class="line">cv2.imwrite(<span class="string">'lanka_safari_transformed.jpg'</span>, img_transformed)</span><br></pre></td></tr></table></figure>
+
+<h2 id="opencv视频功能"><a href="#opencv视频功能" class="headerlink" title="opencv视频功能"></a>opencv视频功能</h2><p>视频中最常用的就是从视频设备采集图片或者视频，或者读取视频文件并从中采样。所以比较重要的也是两个模块，一个是VideoCapture，用于获取相机设备并捕获图像和视频，或是从文件中捕获。还有一个VideoWriter，用于生成视频。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">interval = <span class="number">60</span>           <span class="comment"># 捕获图像的间隔，单位：秒</span></span><br><span class="line">num_frames = <span class="number">500</span>        <span class="comment"># 捕获图像的总帧数</span></span><br><span class="line">out_fps = <span class="number">24</span>            <span class="comment"># 输出文件的帧率</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># VideoCapture(0)表示打开默认的相机</span></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取捕获的分辨率</span></span><br><span class="line">size =(int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)),</span><br><span class="line">       int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))</span><br><span class="line">       </span><br><span class="line"><span class="comment"># 设置要保存视频的编码，分辨率和帧率</span></span><br><span class="line">video = cv2.VideoWriter(</span><br><span class="line">    <span class="string">"time_lapse.avi"</span>, </span><br><span class="line">    cv2.VideoWriter_fourcc(<span class="string">'M'</span>,<span class="string">'P'</span>,<span class="string">'4'</span>,<span class="string">'2'</span>), </span><br><span class="line">    out_fps, </span><br><span class="line">    size</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对于一些低画质的摄像头，前面的帧可能不稳定，略过</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">42</span>):</span><br><span class="line">    cap.read()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始捕获，通过read()函数获取捕获的帧</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_frames):</span><br><span class="line">        _, frame = cap.read()</span><br><span class="line">        video.write(frame)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果希望把每一帧也存成文件，比如制作GIF，则取消下面的注释</span></span><br><span class="line">        <span class="comment"># filename = '&#123;:0&gt;6d&#125;.png'.format(i)</span></span><br><span class="line">        <span class="comment"># cv2.imwrite(filename, frame)</span></span><br><span class="line"></span><br><span class="line">        print(<span class="string">'Frame &#123;&#125; is captured.'</span>.format(i))</span><br><span class="line">        time.sleep(interval)</span><br><span class="line"><span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">    <span class="comment"># 提前停止捕获</span></span><br><span class="line">    print(<span class="string">'Stopped! &#123;&#125;/&#123;&#125; frames captured!'</span>.format(i, num_frames))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 释放资源并写入视频文件</span></span><br><span class="line">video.release()</span><br><span class="line">cap.release()</span><br></pre></td></tr></table></figure>
+
+<p>VideoWriter中的一个函数cv2.VideoWriter_fourcc()。这个函数指定了视频编码的格式，更多编码方式：<a href="http://www.fourcc.org/codecs.php" target="_blank" rel="noopener">http://www.fourcc.org/codecs.php</a></p>
+<p>KeyboardInterrupt，这是一个常用的异常，用来获取用户Ctrl+C的中止，捕获这个异常后直接结束循环并释放VideoCapture和VideoWriter的资源，使已经捕获好的部分视频可以顺利生成。</p>
+<h4 id="按照指定帧数截屏保存图片"><a href="#按照指定帧数截屏保存图片" class="headerlink" title="按照指定帧数截屏保存图片"></a>按照指定帧数截屏保存图片</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第一个输入参数是包含视频片段的路径</span></span><br><span class="line">input_path = sys.argv[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二个输入参数是设定每隔多少帧截取一帧</span></span><br><span class="line">frame_interval = int(sys.argv[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出文件夹下所有的视频文件</span></span><br><span class="line">filenames = os.listdir(input_path)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取文件夹名称</span></span><br><span class="line">video_prefix = input_path.split(os.sep)[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立一个新的文件夹，名称为原文件夹名称后加上_frames</span></span><br><span class="line">frame_path = <span class="string">'&#123;&#125;_frames'</span>.format(input_path)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(frame_path):</span><br><span class="line">    os.mkdir(frame_path)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化一个VideoCapture对象</span></span><br><span class="line">cap = cv2.VideoCapture()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历所有文件</span></span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">    filepath = os.sep.join([input_path, filename])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># VideoCapture::open函数可以从文件获取视频</span></span><br><span class="line">    cap.open(filepath)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 获取视频帧数</span></span><br><span class="line">    n_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 同样为了避免视频头几帧质量低下，黑屏或者无关等</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">42</span>):</span><br><span class="line">        cap.read()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n_frames):</span><br><span class="line">        ret, frame = cap.read()</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 每隔frame_interval帧进行一次截屏操作</span></span><br><span class="line">        <span class="keyword">if</span> i % frame_interval == <span class="number">0</span>:</span><br><span class="line">            imagename = <span class="string">'&#123;&#125;_&#123;&#125;_&#123;:0&gt;6d&#125;.jpg'</span>.format(video_prefix, filename.split(<span class="string">'.'</span>)[<span class="number">0</span>], i)</span><br><span class="line">            imagepath = os.sep.join([frame_path, imagename])</span><br><span class="line">            print(<span class="string">'exported &#123;&#125;!'</span>.format(imagepath))</span><br><span class="line">            cv2.imwrite(imagepath, frame)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结束释放资源</span></span><br><span class="line">cap.release()</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/OpenCV-python/" rel="tag"># OpenCV-python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/25/Python/Pandas使用基础/" rel="next" title="Pandas使用基础">
+                <i class="fa fa-chevron-left"></i> Pandas使用基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/geass.jpg" alt="MingRongChen">
+            
+              <p class="site-author-name" itemprop="name">MingRongChen</p>
+              <div class="site-description motion-element" itemprop="description">O Captain! My Captain!</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/mingrongchen" title="GitHub &rarr; https://github.com/mingrongchen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:825296313@qq.com" title="E-Mail &rarr; mailto:825296313@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenCV-python使用基础"><span class="nav-number">1.</span> <span class="nav-text">OpenCV-python使用基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本图像处理"><span class="nav-number">1.1.</span> <span class="nav-text">基本图像处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概要"><span class="nav-number">1.1.1.</span> <span class="nav-text">概要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-number">1.1.2.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读取显示图片"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">读取显示图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建图像"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">创建图像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#保存图像"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">保存图像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片操作"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">图片操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#图片翻转"><span class="nav-number">1.1.2.4.1.</span> <span class="nav-text">图片翻转</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#复制图片"><span class="nav-number">1.1.2.4.2.</span> <span class="nav-text">复制图片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#颜色空间转换"><span class="nav-number">1.1.2.4.3.</span> <span class="nav-text">颜色空间转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#图片画图"><span class="nav-number">1.1.2.4.4.</span> <span class="nav-text">图片画图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片大小区域处理"><span class="nav-number">1.1.3.</span> <span class="nav-text">图片大小区域处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图片缩放"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">图片缩放</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片裁剪"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">图片裁剪</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片补边"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">图片补边</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片本身处理"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">图片本身处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HSV空间调节"><span class="nav-number">1.1.3.4.1.</span> <span class="nav-text">HSV空间调节</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#直方图和Gamma变换"><span class="nav-number">1.1.3.4.2.</span> <span class="nav-text">直方图和Gamma变换</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片仿射变换"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">图片仿射变换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#仿射变换原理：略"><span class="nav-number">1.1.3.5.1.</span> <span class="nav-text">仿射变换原理：略</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#opencv视频功能"><span class="nav-number">1.2.</span> <span class="nav-text">opencv视频功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#按照指定帧数截屏保存图片"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">按照指定帧数截屏保存图片</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MingRong</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1.5,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"superSample":2,"position":"left","width":150,"height":300,"hOffset":0,"vOffset":-20},"mobile":{"show":false,"scale":0.5,"hOffset":0,"vOffset":-10},"react":{"opacity":0.8,"opacityDefault":0.7,"opacityOnHover":0.2}});</script></body>
+</html>
